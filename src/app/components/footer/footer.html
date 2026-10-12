@@ -1,0 +1,53 @@
+<footer class="aquarelle-footer position-relative overflow-hidden mt-5 pt-5 pb-4 font">
+  <div class="watercolor-blob blob-footer-1"></div>
+  <div class="watercolor-blob blob-footer-2"></div>
+
+  <div class="container position-relative z-1">
+    <div class="row g-4 justify-content-between mb-4">
+
+      <div class="col-lg-4 col-md-6 text-center text-md-start">
+        <h3 class="aquarelle-brand display-6 mb-2" *ngIf="currentLang === 'hu'">Weboldal rendelés</h3>
+        <h3 class="aquarelle-brand display-6 mb-2" *ngIf="currentLang === 'en'">Webpage order</h3>
+        <p class="text-muted fst-italic mb-3" *ngIf="currentLang === 'hu'">
+          Egyedi kulcsra kész weboldalak korrekt áron, határidőn belül, becsületes hozzáállással
+        </p>
+        <p class="text-muted fst-italic mb-3" *ngIf="currentLang === 'en'">
+         Custom turnkey websites at fair prices, delivered on time, with an honest approach.
+        </p>
+        <div class="aquarelle-divider-sm my-3 mx-auto mx-md-0"></div>
+      </div>
+
+
+
+      <div class="col-lg-4 col-md-12 text-center text-lg-start">
+        <h5 class="aquarelle-subtitle mb-3" *ngIf="currentLang === 'hu'">Elérhetőségeim</h5>
+        <h5 class="aquarelle-subtitle mb-3" *ngIf="currentLang === 'en'">Contact details</h5>
+        <p>+36306571970</p>
+        <p>zelikdaniel33@gmail.com</p>
+
+
+
+      </div>
+
+    </div>
+
+    <hr class="aquarelle-hr my-4 ">
+
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6 text-center text-md-start text-muted small mb-5" *ngIf="currentLang === 'hu'">
+        &copy; {{ currentYear }} Weboldal rendelés. Minden jog fenntartva.
+      </div>
+       <div class="col-md-6 text-center text-md-start text-muted small mb-5" *ngIf="currentLang === 'en'">
+        &copy; {{ currentYear }} Weboldal rendelés. All rights reserved.
+      </div>
+      <div class="col-md-6 text-center text-md-end text-muted small mt-2 mt-md-0 fst-italic mb-5"
+        *ngIf="currentLang === 'hu'">
+        Szeretettel tervezve 🎨 by Jaroszlavcev Dániel
+      </div>
+      <div class="col-md-6 text-center text-md-end text-muted small mt-2 mt-md-0 fst-italic mb-5"
+        *ngIf="currentLang === 'en'">
+        Designed with love🎨 by Jaroszlavcev Dániel
+      </div>
+    </div>
+  </div>
+</footer>

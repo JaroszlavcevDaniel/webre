@@ -1,0 +1,7 @@
+<button type="button" class="aquarelle-floating-btn shadow-lg d-flex align-items-center gap-2"
+  [class.hidden]="isContactVisible" (click)="scrollToContact()" aria-label="Díjmentes ajánlatkérés">
+
+  <i class="bi bi-chat-heart-fill fs-5"></i>
+  <span class="fw-semibold" *ngIf="currentLang === 'hu'">Díjmentes <br> ajánlatkérés</span>
+  <span class="fw-semibold" *ngIf="currentLang === 'en'">Free quote <br> request</span>
+</button>

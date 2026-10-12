@@ -1,0 +1,230 @@
+/* --- LEBEGŐ INDÍTÓGOMB --- */
+.chat-launch-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 90px;
+  background-color: #212529;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-launch-btn:hover {
+  background-color: #343a40;
+  transform: translateY(-2px);
+}
+
+/* --- CHAT KONTÉNER (Desktop - Kicsit nagyobb méretek) --- */
+.chat-container {
+  position: fixed;
+  bottom: 25px;
+  left: 90px;
+  width: 420px; /* Korábban 360px volt -> nagyobb, tágasabb szélesség */
+  max-width: calc(100vw - 40px);
+  height: 620px; /* Korábban 500px volt -> magasabb ablak */
+  max-height: calc(100vh - 50px);
+  background-color: #ffffff;
+  border-radius: 16px; /* Kicsit kerekebb sarok */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+/* --- FEJLÉC --- */
+.chat-header {
+  background-color: #212529;
+  color: #ffffff;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bot-avatar-container {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.bot-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
+  background-color: #28a745;
+  border: 2px solid #212529;
+  border-radius: 50%;
+}
+
+.bot-info {
+  flex: 1;
+}
+
+.bot-name {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.bot-status {
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- ÜZENETEK TERÜLETE --- */
+.chat-messages {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  max-width: 82%;
+  padding: 11px 15px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #212529;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #212529;
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+}
+
+/* --- INPUT TERÜLET --- */
+.chat-input-area {
+  padding: 14px;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-input-area textarea {
+  width: 100%;
+  resize: none;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.chat-input-area textarea:focus {
+  border-color: #212529;
+}
+
+.chat-input-area button {
+  align-self: flex-end;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ==========================================
+   MOBIL NÉZET (Képernyőszélesség <= 600px)
+   ========================================== */
+@media (max-width: 900px) {
+  .chat-launch-btn {
+    left: 15px;
+    bottom: 15px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .chat-container {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    top: 90px; /* Biztosítja, hogy a teteje soha ne lógjon ki a képernyőből */
+    width: auto;
+    max-width: none;
+    height: auto; /* Elhagyjuk a fix magasságot, a top/bottom megoldja */
+    max-height: none;
+    border-radius: 16px;
+  }
+
+  .chat-header {
+    padding: 16px;
+  }
+
+  .chat-messages {
+    padding: 14px;
+  }
+
+  .message {
+    max-width: 88%;
+    font-size: 15px;
+  }
+
+  .chat-input-area {
+    padding: 12px;
+  }
+
+  .chat-input-area textarea {
+    font-size: 15px;
+  }
+
+  .chat-input-area button {
+    width: 100%;
+    padding: 12px;
+  }
+}

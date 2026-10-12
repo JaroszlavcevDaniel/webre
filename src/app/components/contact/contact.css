@@ -1,0 +1,129 @@
+/* Google Betűtípus az aquarell stílushoz */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat:wght@300;400;500&display=swap');
+
+
+#contact {
+    background-image: url('/images/nah.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+/* Fő kártya akvarell papír textúrával és lágy formákkal */
+.aquarelle-card {
+  background-color: #fdfbf7;
+  background-image: radial-gradient(#e2d9cc 0.75px, transparent 0.75px);
+  background-size: 12px 12px;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Szabálytalan, kézzel rajzolt hatású sarkok */
+  box-shadow: 0 10px 30px rgba(180, 160, 140, 0.2);
+  border: 2px solid rgba(210, 195, 180, 0.5);
+
+}
+
+/* Címek művészi betűtípussal */
+.aquarelle-title {
+  color: #5c4b51;
+}
+
+.aquarelle-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #f3b0a2, #fbe3b5, #a1c4fd);
+  border-radius: 5px;
+}
+
+/* Kézzel festett hatású háttérfoltok */
+.watercolor-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(35px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.blob-1 {
+  width: 220px;
+  height: 220px;
+  background: #f8b195;
+  top: -40px;
+  right: -30px;
+}
+
+.blob-2 {
+  width: 260px;
+  height: 260px;
+  background: #c5e3f6;
+  bottom: -50px;
+  left: -40px;
+}
+
+/* Címkék */
+.aquarelle-label {
+  color: #6c5b60;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Akvarell stílusú beviteli mezők */
+.aquarelle-input {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #dcd0c0;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: #4a3e3d;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.aquarelle-input:focus {
+  background-color: #ffffff;
+  border-color: #e5989b;
+  box-shadow: 0 0 0 0.25rem rgba(229, 152, 155, 0.25);
+  outline: none;
+}
+
+.aquarelle-input::placeholder {
+  color: #b8aba0;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Festék-hatású Gomb */
+.aquarelle-btn {
+  background: linear-gradient(135deg, #e5989b 0%, #b5838d 100%);
+  color: white;
+  border: none;
+  border-radius: 20px 8px 20px 8px; /* Szabálytalan gomb forma */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(229, 152, 155, 0.4);
+  transition: all 0.3s ease;
+}
+
+.aquarelle-btn:hover {
+  background: linear-gradient(135deg, #b5838d 0%, #6d6875 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(181, 131, 141, 0.5);
+}
+
+.aquarelle-btn:disabled {
+  background: #ccaeb1;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Értesítések akvarell stílusban */
+.aquarelle-alert {
+  border-radius: 12px;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.alert-success {
+  background-color: #e2f0d9;
+  color: #385d25;
+}
+
+.alert-danger {
+  background-color: #fce4e4;
+  color: #a94442;
+}

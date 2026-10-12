@@ -1,0 +1,66 @@
+/* Háttér és alapszínek */
+#references {
+  background-image: url('/images/ezaz.jpeg');
+  background-position: center;
+  background-size: cover;
+  color: #4a4441;
+}
+
+.section-title {
+  color: #2c2523;
+}
+
+/* Akvarell választóvonal */
+.watercolor-divider {
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, #e8b4b8, #a2c4c9, #b8d8be);
+  border-radius: 4px;
+}
+
+/* Hosszú kártya stílusa */
+.watercolor-long-card {
+  border: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.watercolor-long-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+.card-title {
+  color: #3d3532;
+}
+
+/* Képek stílusa a kártyákon belül */
+.watercolor-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.watercolor-img:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+/* Gomb stílus */
+.watercolor-btn {
+  background: linear-gradient(135deg, #e0a9af 0%, #a0c1ba 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.watercolor-btn:hover {
+  color: #ffffff;
+  opacity: 0.9;
+}

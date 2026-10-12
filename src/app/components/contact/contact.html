@@ -1,0 +1,112 @@
+<div class="container-fluid py-5 font" id="contact">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+
+      <div class="aquarelle-card p-4 p-md-5 position-relative overflow-hidden">
+
+        <div class="watercolor-blob blob-1"></div>
+        <div class="watercolor-blob blob-2"></div>
+
+        <div class="position-relative z-1">
+          <div class="text-center mb-4">
+            <h2 class="aquarelle-title display-5 fw-bold" *ngIf="currentLang === 'hu'">Kapcsolatfelvétel</h2>
+            <h2 class="aquarelle-title display-5 fw-bold" *ngIf="currentLang === 'en'">Contact</h2>
+            <p class="text-muted fst-italic" *ngIf="currentLang === 'hu'">Írjon nekem üzenetet, és hamarosan válaszolok!
+            </p>
+            <p class="text-muted fst-italic" *ngIf="currentLang === 'en'">Send me a message, and I will reply soon!
+            </p>
+            <div class="aquarelle-divider mx-auto my-3"></div>
+          </div>
+
+          <div *ngIf="sikerUzenet" class="alert alert-success aquarelle-alert shadow-sm fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <p *ngIf="currentLang === 'hu'"> Köszönöm az üzenetét! Hamarosan felveszem Önnel a kapcsolatot.</p>
+            <p *ngIf="currentLang === 'en'"> Thank you for your message! I will be in touch with you soon.</p>
+          </div>
+
+          <div *ngIf="hibaUzenet" class="alert alert-danger aquarelle-alert shadow-sm fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            {{ hibaUzenet }}
+          </div>
+
+          <form [formGroup]="kapcsolatForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+            <div class="mb-4">
+              <label for="nev" class="form-label aquarelle-label" *ngIf="currentLang === 'hu'">Név *</label>
+              <label for="nev" class="form-label aquarelle-label" *ngIf="currentLang === 'en'">Name *</label>
+              <input type="text" id="nev" formControlName="nev" class="form-control aquarelle-input"
+                [ngClass]="{'is-invalid': f['nev'].touched && f['nev'].invalid}" placeholder="Pl. Kovács Anna">
+              <div *ngIf="f['nev'].touched && f['nev'].invalid" class="invalid-feedback ps-2">
+                <p *ngIf="currentLang === 'hu'">Kérlek, add meg a nevedet!</p>
+                <p *ngIf="currentLang === 'en'">Please, write your name</p>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label for="email" class="form-label aquarelle-label" *ngIf="currentLang === 'hu'">E-mail cím *</label>
+                <label for="email" class="form-label aquarelle-label" *ngIf="currentLang === 'en'">E-mail adress
+                  *</label>
+                <input type="email" id="email" formControlName="email" class="form-control aquarelle-input"
+                  [ngClass]="{'is-invalid': f['email'].touched && f['email'].invalid}" placeholder="anna@example.com">
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="invalid-feedback ps-2">
+                  <span *ngIf="f['email'].errors?.['required']">
+                    <span *ngIf="currentLang === 'hu'">Az e-mail cím megadása kötelező.</span>
+                    <span *ngIf="currentLang === 'en'">Providing an email address is mandatory.</span>
+                  </span>
+                  <span *ngIf="f['email'].errors?.['email']">
+                    <span *ngIf="currentLang === 'hu'">Érvénytelen e-mail
+                      formátum!</span>
+                    <span *ngIf="currentLang === 'en'">Invalid e-mail
+                      format!</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label for="telefon" class="form-label aquarelle-label" *ngIf="currentLang === 'hu'">Telefonszám</label>
+                <label for="telefon" class="form-label aquarelle-label" *ngIf="currentLang === 'en'">Phone number</label>
+
+                <input type="tel" id="telefon" formControlName="telefon" class="form-control aquarelle-input"
+                  placeholder="+36 30 123 4567">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="uzenet" class="form-label aquarelle-label" *ngIf="currentLang === 'hu'">Üzenet *</label>
+              <label for="uzenet" class="form-label aquarelle-label" *ngIf="currentLang === 'en'">Message *</label>
+
+              <textarea id="uzenet" formControlName="uzenet" rows="5" class="form-control aquarelle-input"
+                [ngClass]="{'is-invalid': f['uzenet'].touched && f['uzenet'].invalid}"
+                placeholder="Írd le a gondolataidat vagy kérdésedet..."></textarea>
+              <div *ngIf="f['uzenet'].touched && f['uzenet'].invalid" class="invalid-feedback ps-2">
+                <p *ngIf="currentLang === 'hu'">Kérem, írjon az üzenetét!</p>
+                <p *ngIf="currentLang === 'en'">Please write your message!</p>
+
+              </div>
+            </div>
+
+            <div class="text-center pt-2">
+              <button type="submit" class="btn aquarelle-btn px-5 py-2 position-relative"
+                [disabled]="kuldesFolyamatban">
+                <span *ngIf="!kuldesFolyamatban">
+                  <span *ngIf="currentLang === 'hu'">Üzenet elküldése</span>
+                  <span *ngIf="currentLang === 'en'">Sending message</span>
+                  </span>
+                <span *ngIf="kuldesFolyamatban" class="spinner-border spinner-border-sm me-2" role="status"
+                  aria-hidden="true"></span>
+                <span *ngIf="kuldesFolyamatban">
+                  <span *ngIf="currentLang === 'hu'">Küldés...</span>
+                  <span *ngIf="currentLang === 'en'">Sending...</span>
+                  </span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

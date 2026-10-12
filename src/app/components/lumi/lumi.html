@@ -1,0 +1,46 @@
+
+@if (!isOpen) {
+<button type="button" (click)="handleOpen()" class="chat-launch-btn fw-bold">
+    kérdezze meg <br> Lumit
+    <img src="https://media1.tenor.com/m/QlkQzRLq2YEAAAAd/yaziprint-0020cm.gif" alt="" style="width: 55px !important; border-radius: 50%;">
+</button>
+}
+
+
+@if (isOpen) {
+<div class="chat-container">
+
+    <div class="chat-header">
+        <div class="bot-avatar-container">
+            <img src="https://media1.tenor.com/m/QlkQzRLq2YEAAAAd/yaziprint-0020cm.gif" alt="Lumi" class="bot-avatar" />
+            <div class="status-dot"></div>
+        </div>
+        <div class="bot-info">
+            <div class="bot-name">Lumi</div>
+            <div class="bot-status">Online</div>
+        </div>
+
+       
+        <button type="button" (click)="handleClose()" title="Bezárás és törlés" class="close-btn">
+            ✕
+        </button>
+    </div>
+
+  
+    <div class="chat-messages" #chatMessages>
+        @for (msg of messages; track msg.id) {
+        <div [ngClass]="'message ' + msg.sender">
+            {{ msg.text }}
+        </div>
+        }
+    </div>
+
+    <div class="chat-input-area">
+        <textarea class="form-control" placeholder="Írja meg az üzenetét..." rows="2" [(ngModel)]="userInput"
+            (keydown)="handleKeyDown($event)" autocomplete="off"></textarea>
+        <button type="button" class="btn btn-dark text-uppercase" (click)="handleSend()">
+            Küldés
+        </button>
+    </div>
+</div>
+}

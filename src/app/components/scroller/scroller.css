@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+.aquarelle-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* A sáv magassága tetszés szerint állítható */
+  background: transparent;
+  z-index: 9999; /* Bootstrap navbar felett jelenik meg */
+  pointer-events: none;
+}
+
+.aquarelle-progress-bar {
+  height: 100%;
+  width: 0%;
+  
+  /* Lágy akvarell színátmenet: Magenta -> Türkiz -> Napsárga */
+  background: linear-gradient(
+    90deg, 
+    #ff70a6 0%, 
+    #ff9770 25%, 
+    #ffd670 50%, 
+    #e9ff70 75%, 
+    #70d6ff 100%
+  );
+  
+  /* Akvarell elmosódás hatás a szélén */
+  border-radius: 0 4px 4px 0;
+  box-shadow: 
+    0 0 10px rgba(255, 112, 166, 0.6),
+    0 0 20px rgba(112, 214, 255, 0.4);
+
+  /* Finom görgetési animáció */
+  transition: width 0.15s ease-out;
+}

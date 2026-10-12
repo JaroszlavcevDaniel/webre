@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat:wght@300;400;500&display=swap');
+
+/* Lábléc alap stílusa akvarell papír textúrával */
+.aquarelle-footer {
+  background-color: #d0bb9c;
+  background-image: radial-gradient(#e0d5c5 0.75px, transparent 0.75px);
+  background-size: 14px 14px;
+  border-top: 3px solid rgba(229, 152, 155, 0.4);
+  color: #5c4b51;
+}
+
+/* Címek és márkanév */
+.aquarelle-brand {
+  color: #5c4b51;
+}
+
+.aquarelle-subtitle {
+  font-size: 1.6rem;
+  color: #6c5b60;
+}
+
+.aquarelle-divider-sm {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #e5989b, #fbe3b5);
+  border-radius: 3px;
+}
+
+/* Kézzel festett hátterek foltjai */
+.watercolor-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.blob-footer-1 {
+  width: 350px;
+  height: 350px;
+  background: #a1c4fd;
+  bottom: -60px;
+  left: -50px;
+}
+
+.blob-footer-2 {
+  width: 480px;
+  height: 580px;
+  background: #f8b195;
+  top: -80px;
+  right: -60px;
+}
+
+/* Navigációs linkek */
+.footer-links {
+  padding: 0;
+}
+
+.footer-link {
+  color: #7a6a6f;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #b5838d;
+  transform: translateX(4px);
+}
+
+/* Akvarell gomb hatású közösségi ikonok */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #ffffff;
+  color: #b5838d;
+  border-radius: 50% 15px 50% 15px; /* Szabálytalan festék-csepp forma */
+  border: 1.5px solid #ebdcd0;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(181, 131, 141, 0.15);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, #e5989b 0%, #b5838d 100%);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-3px) rotate(5deg);
+  box-shadow: 0 6px 15px rgba(229, 152, 155, 0.35);
+}
+
+/* Vízszintes elválasztó vonal */
+.aquarelle-hr {
+  border-top: 1px solid rgba(181, 131, 141, 0.2);
+  opacity: 1;
+}

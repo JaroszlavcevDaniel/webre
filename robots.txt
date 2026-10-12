@@ -1,0 +1,17 @@
+# Weboldal: https://weboldal-rendeles.hu
+# Tulajdonos: Jaroszlavcev Dániel
+
+User-agent: *
+Allow: /
+
+# Belső Angular / SPA fájlok elrejtése a keresők elől (opcionális, de ajánlott)
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.json$
+
+# Képek indexelésének engedélyezése
+Allow: /images/
+Allow: /assets/
+
+# Sitemap helye
+Sitemap: https://weboldal-rendeles.hu/sitemap.xml

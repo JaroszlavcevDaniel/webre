@@ -1,0 +1,524 @@
+<section id="techSteck" class="aquarelle-section p-2 p-md-3 mt-5 pt-5 font">
+  <div class="container-fluid h-100 d-flex flex-column justify-content-start my-auto">
+    
+    <!-- Fejléc (Kompakt méretekkel) -->
+    <div class="text-center mb-2 position-relative">
+      <div class="watercolor-title-blob mx-auto"></div>
+      <h2 *ngIf="currentLang === 'hu'" class="watercolor-heading position-relative mt-5">Eszköztáram &amp; Technológiák</h2>
+      <p *ngIf="currentLang === 'hu'" class="subtitle text-muted position-relative mb-0">Ahogy a színek keverednek a vásznon, úgy kapcsolódnak össze a technológiák.</p>
+          <h2 *ngIf="currentLang === 'en'" class="watercolor-heading position-relative mt-5">My Toolkit &amp; Technologies</h2>
+      <p *ngIf="currentLang === 'en'" class="subtitle text-muted position-relative mb-0">Just as colors blend on the canvas, technologies intertwine.</p>
+    
+    </div>
+
+    <!-- Kategória szűrő gombok -->
+    <div class="d-flex justify-content-center flex-wrap gap-1 mb-4">
+      <button  *ngIf="currentLang === 'hu'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'all'" 
+        (click)="filterCategory('all')">
+        Összes
+      </button>
+         <button  *ngIf="currentLang === 'en'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'all'" 
+        (click)="filterCategory('all')">
+        All
+      </button>
+      <button 
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'frontend'" 
+        (click)="filterCategory('frontend')">
+        Frontend &amp; UI
+      </button>
+      <button 
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'graphics'" 
+        (click)="filterCategory('graphics')">
+        3D &amp; Graphic
+      </button>
+      <button *ngIf="currentLang === 'hu'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'backend'" 
+        (click)="filterCategory('backend')">
+        Backend &amp; Szerver
+      </button>
+         <button *ngIf="currentLang === 'en'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'backend'" 
+        (click)="filterCategory('backend')">
+        Backend &amp; Server
+      </button>
+      <button *ngIf="currentLang === 'hu'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'database'" 
+        (click)="filterCategory('database')">
+        Adatbázis &amp; Felhő
+      </button>
+        <button *ngIf="currentLang === 'en'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'database'" 
+        (click)="filterCategory('database')">
+        Database &amp; Cloud
+      </button>
+      <button *ngIf="currentLang === 'hu'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'devops'" 
+        (click)="filterCategory('devops')">
+        DevOps &amp; Eszközök
+      </button>
+        <button *ngIf="currentLang === 'en'"
+        class="btn watercolor-btn btn-sm" 
+        [class.active]="selectedCategory === 'devops'" 
+        (click)="filterCategory('devops')">
+        DevOps &amp; Tools
+      </button>
+    </div>
+
+    <!-- Technológia Kártyák Grid (Mobilon 2 oszlop, Tableten 3, Desktopon 5) -->
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-1  align-content-center">
+
+      <!-- HTML5 -->
+      <div class="col" *ngIf="isCategoryVisible('frontend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #ff9a9e;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">HTML5</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Semantikus kódolás és reszponzív elrendezések.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Semantic coding and responsive layouts.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS / SCSS -->
+      <div class="col" *ngIf="isCategoryVisible('frontend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #d5efb2;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">CSS / SCSS</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Megjelenítés tudomány.
+            </p>
+               <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+           The science of visualization.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="col" *ngIf="isCategoryVisible('frontend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #fecfef;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-filetype-js"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">JavaScript (ES6+)</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              A web dinamikája és interaktivitása.
+            </p>
+               <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              The dynamics and interactivity of the web.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Angular -->
+      <div class="col" *ngIf="isCategoryVisible('frontend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #a1c4fd;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-hexagon-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Angular</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Skálázható keretrendszer webalkalmazásokhoz.
+            </p>
+               <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Scalable framework for web applications.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RxJS -->
+      <div class="col" *ngIf="isCategoryVisible('frontend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #c2e9fb;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">RxJS</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Reaktív programozás és aszinkron adatfolyamok.
+            </p>
+              <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Reactive programming and asynchronous data streams.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bootstrap -->
+      <div class="col" *ngIf="isCategoryVisible('frontend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #d4fc79;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-bootstrap-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Bootstrap</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Gyors és megbízható reszponzív keretrendszer.
+            </p>
+               <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              A fast and reliable responsive framework.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three.js -->
+      <div class="col" *ngIf="isCategoryVisible('graphics')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #e0c3fc;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-box"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Three.js</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              3D látványvilág és animációk a böngészőben.
+            </p>
+               <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              3D visuals and animations in the browser.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phaser.js -->
+      <div class="col" *ngIf="isCategoryVisible('graphics')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #8ec5fc;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-controller"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Phaser.js</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Játékfejlesztés és interaktív élmények.
+            </p>
+               <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Game development and interactive experiences.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Babylon.js -->
+      <div class="col" *ngIf="isCategoryVisible('graphics')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #8ec5fc;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-controller"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Babylon.js</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              3D model fejlesztés.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              3D model development.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHP -->
+      <div class="col" *ngIf="isCategoryVisible('backend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #cfd9df;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-server"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">PHP</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              A szerveroldali logika stabil alappillére.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              The stable cornerstone of server-side logic.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laravel -->
+      <div class="col" *ngIf="isCategoryVisible('backend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #fef9d7;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-layers-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Laravel</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Elegáns PHP keretrendszer háttérrendszerekhez.
+            </p>
+                <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              An elegant PHP framework for backends.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apache -->
+      <div class="col" *ngIf="isCategoryVisible('backend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #d57eeb;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Apache</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Megbízható webszerver-konfiguráció.
+            </p>
+              <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Reliable web server configuration.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swagger -->
+      <div class="col" *ngIf="isCategoryVisible('backend')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #deeb7e;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Swagger</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              API konfiguráció.
+            </p>
+              <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              API configuration.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MySQL -->
+      <div class="col" *ngIf="isCategoryVisible('database')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #84fab0;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-database-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">MySQL</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Relációs adatbázis-kezelés és struktúrák.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Relational database management and structures.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLSQL -->
+      <div class="col" *ngIf="isCategoryVisible('database')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #fa84fa;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-database-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">PL/SQL</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Relációs adatbázis-kezelés.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Relational database management.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Firebase -->
+      <div class="col" *ngIf="isCategoryVisible('database')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #ffecd2;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-fire"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Firebase</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Valós idejű adatbázis és felhőinfrastruktúra.
+            </p>
+                <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Real-time database and cloud infrastructure.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GitHub -->
+      <div class="col" *ngIf="isCategoryVisible('devops')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #e0c3fc;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-github"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">GitHub</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Verziókezelés és projektkövetés.
+            </p>
+              <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Version control and project tracking.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Postman -->
+      <div class="col" *ngIf="isCategoryVisible('devops')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #ffb199;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-send-check-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Postman</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              API-k tesztelése és fejlesztése.
+            </p>
+              <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Testing and development of APIs.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vercel -->
+      <div class="col" *ngIf="isCategoryVisible('devops')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #a8edea;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-triangle-fill"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Vercel</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Gyors integráció és weboldal-publikáció.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Rapid integration and website publication.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jira -->
+      <div class="col" *ngIf="isCategoryVisible('devops')">
+        <div class="card watercolor-card h-100 p-2 border-0">
+          <div class="watercolor-bg-blob" style="background: #a8edea;"></div>
+          <div class="card-body p-1 position-relative d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-1">
+              <div class="tech-icon-wrapper me-2">
+                <i class="bi bi-kanban"></i>
+              </div>
+              <h3 class="card-title mb-0 fw-bold title-font">Jira</h3>
+            </div>
+            <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'hu'">
+              Projektkezelés és feladatkövetés.
+            </p>
+             <p class="card-text text-secondary desc-font mb-1" *ngIf="currentLang === 'en'">
+              Project management and task tracking.
+            </p>
+            <div class="paint-stroke"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

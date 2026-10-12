@@ -1,0 +1,61 @@
+/* Globális alapbeállítások */
+body {
+  background-color: rgb(13, 13, 13);
+}
+
+/* Betűtípus osztály több komponenshez */
+.font {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+}
+
+/* Gomb hover effekt (ha használod) */
+.buttonHov {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.buttonHov:hover {
+  background-color: #320c75;
+  color: #ffffff;
+}
+
+/* 
+   GLOBÁLIS BLUR EFFEKTEK 
+   Ezeket elég CSAK ITT megadni, a komponensek saját CSS-éből törölheted!
+*/
+.blur-top::before,
+.blur-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 12vh;
+  z-index: 5;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 1. Csak a FELSŐ él mosódik el (a szekció 90%-a teljesen látható marad) */
+.blur-edge-top {
+  position: relative;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%);
+}
+
+/* 2. Csak az ALSÓ él mosódik el (a szekció 90%-a teljesen látható marad) */
+.blur-edge-bottom {
+  position: relative;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+/* 3. TETEJE ÉS ALJA EGYSZERRE mosódik el (középen 80% látható) */
+.blur-edge-both {
+  position: relative;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}

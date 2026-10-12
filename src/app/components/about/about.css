@@ -1,0 +1,27 @@
+.aboutMe {
+  position: relative;
+  background-image: url("/images/uwueve.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.aboutMe h1 {
+  line-height: 1.2;
+}
+
+.aboutMe p {
+  line-height: 1.6;
+}
+
+.aboutMe .profile-img {
+  object-fit: cover;
+  max-height: 320px;
+  width: 60%;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+

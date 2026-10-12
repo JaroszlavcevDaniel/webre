@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg bg-success-subtle  fixed-top mb-5 font fw-bold" [class.bg-litext-light]="isScrolled">
+    <div class="container-fluid">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto ">
+
+                <li class="nav-item ">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" href="#hero">
+                        ⬆
+                    </a>
+
+                  
+                </li>
+
+                <li class="nav-item ">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'hu'" href="#about">
+                        RÓLAm
+                    </a>
+
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'en'" href="#about">
+                        About me
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'hu'" href="#services">
+                        Szolgáltatásaim
+                    </a>
+
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'en'" href="#services">
+                        My services
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'hu'" href="#techSteck">
+                        Technológiák
+                    </a>
+
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'en'" href="#techSteck">
+                        Technologies
+                    </a>
+                </li>
+
+                 
+
+                <li class="nav-item">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'hu'" href="#references">
+                        Referenciák
+                    </a>
+
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'en'" href="#references">
+                        References
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'hu'" href="#contact">
+                        Kapcsolatfelvétel
+                    </a>
+
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'en'" href="#contact">
+                        Contact me
+                    </a>
+                </li>
+
+                
+
+               
+
+
+            </ul>
+         
+           <button (click)="closeMobileMenu()" (click)="changeLanguage()" class="text-dark btn btn-dark bg-transparent fw-bold ">
+                {{ currentLang === 'hu' ? 'EN' : 'HU' }}
+            </button>
+            
+        </div>
+    </div>
+</nav>
