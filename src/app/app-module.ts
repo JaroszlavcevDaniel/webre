@@ -17,6 +17,7 @@ import { Contact } from './components/contact/contact';
 import { HttpClientModule } from '@angular/common/http';
 import { Footer } from './components/footer/footer';
 import { Float } from './components/float/float';
+import { Cookie } from './components/cookie/cookie';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { Float } from './components/float/float';
     Reference,
     Contact,
     Footer,
-    Float
+    Float,
+    Cookie
   ],
   imports: [
     BrowserModule,

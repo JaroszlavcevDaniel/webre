@@ -120,12 +120,12 @@
 
 .title-font {
   color: #2c3e50;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   line-height: 1.2;
 }
 
 .desc-font {
-  font-size: 0.72rem;
+  font-size: 1rem;
   line-height: 1.25;
 }
 
@@ -149,4 +149,11 @@
   width: 50%;
   background: linear-gradient(90deg, rgba(200, 200, 200, 0.4), transparent);
   border-radius: 2px;
+}
+
+.blur-edge-both {
+  position: relative;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
 }
