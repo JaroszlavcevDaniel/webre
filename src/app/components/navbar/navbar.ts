@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from "@angular/core";
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from "@angular/core";
 import { LanguageService } from "../../services/language-service";
+import { isPlatformBrowser } from "@angular/common";
 
 
 
@@ -15,7 +16,9 @@ export class Navbar implements OnInit {
 
     isScrolled = false;
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService,
+          @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.languageService.lang$.subscribe(lang => {
@@ -43,5 +46,26 @@ export class Navbar implements OnInit {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.isScrolled = scrollPosition > 50;
   }
+
+  scrollToTop(): void {
+   
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+
+      const container = document.querySelector('.scroll-container') as HTMLElement | null;
+      if (container) {
+        container.scrollTop = 0;
+      }
+    }, 0);
+}
+ 
 
 }

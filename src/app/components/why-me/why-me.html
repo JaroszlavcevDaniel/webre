@@ -1,0 +1,109 @@
+<section class="why-us-section font" id="whyMe">
+  <div class="container">
+    <!-- Fejléc -->
+    <div class="section-header">
+      <h2 *ngIf="currentLang === 'hu'" class="text-dark text-shadow">Miért válasszon engem?</h2>
+      <h2 *ngIf="currentLang === 'en'" class="text-dark text-shadow">Why choose me?</h2>
+    </div>
+
+    <!-- Kártyák rács (Grid) -->
+    <div class="cards-grid">
+
+      <!-- 1. Nincs kockázat -->
+      <div class="feature-card">
+        <div class="card-icon risk-free">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 *ngIf="currentLang === 'hu'">Nulla kockázat</h3>
+          <p *ngIf="currentLang === 'hu'">A fizetés kizárólag a már elkészült, tökéletesen működő weboldal bemutatása
+            után, az átadás pillanatában történik. Nincsenek rejtett költségek vagy zsákbamacska.</p>
+          <h3 *ngIf="currentLang === 'en'">Zero risk</h3>
+          <p *ngIf="currentLang === 'en'">Payment takes place exclusively at the moment of handover, following the
+            presentation of the fully completed, perfectly functioning website. There are no hidden costs or unpleasant
+            surprises.</p>
+
+        </div>
+      </div>
+
+      <!-- 2. Korrekt hozzáállás -->
+      <div class="feature-card">
+        <div class="card-icon fair-play">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 *ngIf="currentLang === 'hu'">Korrekt & Hosszú távú partner</h3>
+          <p *ngIf="currentLang === 'hu'">Végigkézen fogva megyünk végig a folyamaton, de a projekt lezárása után sem
+            tűnök el. Segítségre lesz szükséged a jövőben is? Számíthatsz rám.</p>
+          <h3 *ngIf="currentLang === 'en'">Reliable & Long-term Partner</h3>
+          <p *ngIf="currentLang === 'en'">I will guide you through the entire process, and I won’t disappear once the
+            project is complete. Need help in the future? You can count on me.</p>
+
+        </div>
+      </div>
+
+      <!-- 3. Több év tapasztalat -->
+      <div class="feature-card">
+        <div class="card-icon experience">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 *ngIf="currentLang === 'hu'">Több év tapasztalat</h3>
+          <p *ngIf="currentLang === 'hu'">A webfejlesztés terén szerzett sokéves szakmai rutin garantálja, hogy stabil,
+            gyors, biztonságos és modern weboldalt kapsz, ami kiállja az idő próbáját.</p>
+          <h3 *ngIf="currentLang === 'en'">Several years of experience</h3>
+          <p *ngIf="currentLang === 'en'">Years of professional experience in web development guarantee that you will
+            receive a stable, fast, secure, and modern website that stands the test of time.</p>
+
+        </div>
+      </div>
+
+      <!-- 4. Rugalmasság -->
+      <div class="feature-card">
+        <div class="card-icon flexibility">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+            <path d="M2 8h1a4 4 0 0 0 0 8H2" />
+            <line x1="6" y1="12" x2="18" y2="12" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 *ngIf="currentLang === 'hu'">Maximális rugalmasság</h3>
+          <p *ngIf="currentLang === 'hu'">Alkalmazkodom az igényeidhez és a változó elképzelésekhez. Nyitott vagyok az
+            egyedi kérésekre, és gyorsan reagálok a felmerülő módosítási ötletekre.</p>
+          <h3 *ngIf="currentLang === 'en'">Maximum flexibility</h3>
+          <p *ngIf="currentLang === 'en'">I adapt to your needs and evolving ideas. I am open to unique requests and
+            respond quickly to any ideas for changes that may arise.</p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Gomb -->
+    <div class="section-cta">
+<button class="text-light text-uppercase btn btn-dark fs-4" aria-current="page" *ngIf="currentLang === 'hu'"
+        routerLink="/reference" fragment="references">
+        Referenciák megtekintése
+      </button>
+
+<button class="text-light text-uppercase btn div text-uppercase btn btn-dark fs-4" aria-current="page" *ngIf="currentLang === 'en'"
+        routerLink="/reference" fragment="references">
+        View references
+      </button>
+    </div>
+
+  </div>
+</section>

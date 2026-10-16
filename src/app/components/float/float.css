@@ -48,3 +48,7 @@
     font-size: 0.85rem;
   }
 }
+
+.aquarelle-floating-btn.hidden {
+  display: none !important;
+}

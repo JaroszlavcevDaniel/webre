@@ -1,66 +1,140 @@
-/* Háttér és alapszínek */
-#references {
-  background-image: url('/images/ezaz.jpeg');
-  background-position: center;
-  background-size: cover;
-  color: #4a4441;
+/* Akvarell stílusú háttér és alapelemek */
+.references-section {
+  background-color: #fcfbf9;
+  background-image: radial-gradient(#e6ecf2 0.75px, transparent 0.75px), radial-gradient(#f3e6e6 0.75px, #fcfbf9 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
 }
 
-.section-title {
-  color: #2c2523;
+.watercolor-title {
+  color: #2c3e50;
+  letter-spacing: 1px;
 }
 
-/* Akvarell választóvonal */
 .watercolor-divider {
-  width: 90px;
+  width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #e8b4b8, #a2c4c9, #b8d8be);
-  border-radius: 4px;
+  background: linear-gradient(90deg, #316963 0%, #c2e9fb 100%);
+  border-radius: 2px;
 }
 
-/* Hosszú kártya stílusa */
-.watercolor-long-card {
-  border: none;
-  border-radius: 16px;
-  background-color: #ffffff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Kártya dizájn akvarell papír kerettel */
+.watercolor-card {
+  background: #ffffff;
+  border-radius: 16px !important;
+  border: 2px dashed #dbeafe !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.watercolor-long-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+.watercolor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.08) !important;
+  border-color: #6cf4cd !important;
 }
 
-.card-title {
-  color: #3d3532;
-}
-
-/* Képek stílusa a kártyákon belül */
-.watercolor-img {
-  width: 100%;
+/* Miniatűr képek és overlay */
+.watercolor-thumb-wrapper {
+  cursor: pointer;
   aspect-ratio: 4 / 3;
+}
+
+.watercolor-thumb {
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.4s ease;
 }
 
-.watercolor-img:hover {
-  opacity: 0.92;
-  transform: scale(1.02);
+.watercolor-thumb-wrapper:hover .watercolor-thumb {
+  transform: scale(1.08);
 }
 
-/* Gomb stílus */
-.watercolor-btn {
-  background: linear-gradient(135deg, #e0a9af 0%, #a0c1ba 100%);
-  color: #ffffff;
-  border: none;
+.watercolor-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 62, 80, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.watercolor-thumb-wrapper:hover .watercolor-overlay {
+  opacity: 1;
+}
+
+/* Címkék és gombok */
+/* .watercolor-badge {
+  background: #e0f2fe;
+  color: #0369a1;
   border-radius: 20px;
-  padding: 8px 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: opacity 0.2s ease;
+} */
+
+.project-heading {
+  color: #1e293b;
 }
+
+/* .watercolor-btn {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+} */
 
 .watercolor-btn:hover {
-  color: #ffffff;
   opacity: 0.9;
+  transform: scale(1.02);
+  color: #fff;
+}
+
+/* Lightbox Modal */
+.watercolor-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.lightbox-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+.lightbox-main-img {
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-nav {
+  background: rgba(0, 0, 0, 0.1);
+  border: 5px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-nav:hover {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Reszponzív igazítások */
+@media (max-width: 991.98px) {
+  .project-content {
+    padding-left: 0 !important;
+    margin-top: 1.5rem;
+  }
 }

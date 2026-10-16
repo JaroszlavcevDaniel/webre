@@ -1,0 +1,134 @@
+/* Alap konténer és háttér */
+.why-us-section {
+  background-image: url('/images/aquaaa.jpeg');
+  background-position: center;
+  background-size: cover;
+  padding: 80px 20px;
+  color: #1e293b;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Fejléc design */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+}
+
+
+.section-header h2 {
+  color: #0f172a;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-header p {
+  color: #64748b;
+}
+
+/* Kártyák rács elrendezése */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Egyedi kártya design */
+.feature-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #cbd5e1;
+}
+
+/* Kártya ikonok konténere */
+.card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/* Színek az ikonok hátteréhez */
+.risk-free { background-color: #ecfdf5; color: #059669; }
+.fair-play { background-color: #eff6ff; color: #2563eb; }
+.experience { background-color: #f5f3ff; color: #7c3aed; }
+.flexibility { background-color: #fff7ed; color: #ea580c; }
+
+/* Számozás a kártyán belül (opcionális design elem) */
+.card-number {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #f1f5f9;
+  z-index: 0;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card h3 {
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA gomb szekció */
+.section-cta {
+  text-align: center;
+}
+
+.cta-button {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+
+  padding: 16px 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.cta-button:hover {
+  background-color: #1e293b;
+  transform: scale(1.02);
+}
+
+.cta-button svg {
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover svg {
+  transform: translateX(4px);
+}

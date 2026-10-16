@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Footer } from './components/footer/footer';
 import { Float } from './components/float/float';
 import { Cookie } from './components/cookie/cookie';
+import { WhyMe } from './components/why-me/why-me';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { Cookie } from './components/cookie/cookie';
     Contact,
     Footer,
     Float,
-    Cookie
+    Cookie,
+    WhyMe
   ],
   imports: [
     BrowserModule,

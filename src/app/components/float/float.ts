@@ -1,5 +1,13 @@
+
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LanguageService } from '../../services/language-service';
 
 @Component({
@@ -12,60 +20,69 @@ export class Float implements OnInit, OnDestroy {
 
   currentLang: 'hu' | 'en' = 'hu';
 
-  isContactVisible: boolean = false;
-  private observer!: IntersectionObserver;
+  isContactVisible = false;
+
+  private observer?: IntersectionObserver;
+  private langSubscription?: Subscription;
+  private removeVisibilityListeners?: () => void;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-  private languageService: LanguageService
-) {}
+    @Inject(PLATFORM_ID) private platformId: object,
+    private languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
-        this.languageService.lang$.subscribe(lang => {
+    this.langSubscription = this.languageService.lang$.subscribe(lang => {
       this.currentLang = lang;
     });
-    
-    // Ellenőrizzük, hogy böngésző környezetben fut-e az kód (SSR védelem)
+
     if (isPlatformBrowser(this.platformId)) {
-      this.setupIntersectionObserver();
+      setTimeout(() => this.setupIntersectionObserver(), 100);
     }
+  }
+
+
+
+private setupIntersectionObserver(): void {
+  const checkVisibility = (): void => {
+    const contact = document.getElementById('contact');
+    const references = document.getElementById('references');
+
+    const isVisible = (element: HTMLElement | null): boolean => {
+      if (!element) return false;
+
+      const rect = element.getBoundingClientRect();
+
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
+
+    this.isContactVisible =
+      isVisible(contact) || isVisible(references);
+  };
+
+  checkVisibility();
+
+  window.addEventListener('scroll', checkVisibility, { passive: true });
+  window.addEventListener('resize', checkVisibility);
+
+  this.removeVisibilityListeners = () => {
+    window.removeEventListener('scroll', checkVisibility);
+    window.removeEventListener('resize', checkVisibility);
+  };
+}
+
+  scrollToContact(): void {
+    const contactElement = document.getElementById('contact');
+
+    contactElement?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   }
 
   ngOnDestroy(): void {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-  }
-
-  // Megkeresi a #contact elemet és figyeli a láthatóságát
-  private setupIntersectionObserver(): void {
-    const contactElement = document.getElementById('contact');
-
-    if (!contactElement) {
-      console.warn('FloatingButtonComponent: Nem található "#contact" azonosítójú elem az oldalon!');
-      return;
-    }
-
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Ha a #contact elem látható a képernyőn (legalább 10%-ban), elrejtjük a gombot
-          this.isContactVisible = entry.isIntersecting;
-        });
-      },
-      {
-        threshold: 0.1 // A kapcsolati elem 10%-os láthatóságánál már reagál
-      }
-    );
-
-    this.observer.observe(contactElement);
-  }
-
-  // Finom görgetés a #contact szekcióhoz
-  scrollToContact(): void {
-    const contactElement = document.getElementById('contact');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
+  this.observer?.disconnect();
+  this.langSubscription?.unsubscribe();
+  this.removeVisibilityListeners?.();
+}
 }

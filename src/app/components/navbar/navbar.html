@@ -53,16 +53,27 @@
                     </a>
                 </li>
 
+                  <li class="nav-item">
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'hu'" href="#whyMe">
+                        Miért válasszon engem
+                    </a>
+
+                    <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
+                        aria-current="page" *ngIf="currentLang === 'en'" href="#whyMe">
+                        Why choose me
+                    </a>
+                </li>
                  
 
                 <li class="nav-item">
                     <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
-                        aria-current="page" *ngIf="currentLang === 'hu'" href="#references">
+                        aria-current="page" *ngIf="currentLang === 'hu'" routerLink="/reference" (click)="scrollToTop()">
                         Referenciák
                     </a>
 
                     <a (click)="closeMobileMenu()" class="text-dark nav-link active cormorant-garamond text-uppercase sotet-gomb "
-                        aria-current="page" *ngIf="currentLang === 'en'" href="#references">
+                        aria-current="page" *ngIf="currentLang === 'en'" routerLink="/reference" (click)="scrollToTop()">
                         References
                     </a>
                 </li>
